@@ -93,7 +93,7 @@ button { font-family: inherit; }
   .emd-features-grid { grid-template-columns: 1fr !important; }
 
   /* Bio */
-  .emd-bio-grid { grid-template-columns: 1fr !important; }
+  .emd-bio-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
 
   /* Reviews */
   .emd-reviews-grid { grid-template-columns: 1fr !important; }

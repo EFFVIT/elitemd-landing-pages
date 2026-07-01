@@ -593,45 +593,84 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       </section>
 
       {/* ── 5. DOCTOR BIO ──────────────────────────────────────────────────── */}
-      <section style={{ background: WHITE, padding: '72px 48px' }} className="emd-pad">
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div className="emd-bio-grid two-col">
-            {/* Photo */}
+      <section style={{ background: WHITE, padding: '80px 48px' }} className="emd-pad">
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div
+            className="emd-bio-grid"
+            style={{ display: 'grid', gridTemplateColumns: '45fr 55fr', gap: 64, alignItems: 'start' }}
+          >
+            {/* Photo — portrait proportions, 5px radius per Figma */}
             <div>
               <img
                 src={BIO_PHOTO}
                 alt="Dr. Vivek Bansal"
-                style={{ width: '100%', borderRadius: 12, objectFit: 'cover', maxHeight: 520 }}
+                style={{
+                  width: '100%',
+                  aspectRatio: '625 / 752',
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                  borderRadius: 5,
+                  display: 'block',
+                }}
               />
             </div>
+
             {/* Text */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <h2
                 className="emd-h2-xl"
                 style={{
                   fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
-                  fontWeight: 700,
-                  fontSize: 30,
+                  fontWeight: 400,
+                  fontSize: 40,
                   color: DARK,
-                  lineHeight: 1.25,
+                  textTransform: 'uppercase',
+                  lineHeight: 1.13,
+                  margin: 0,
                 }}
               >
-                Dr. VIVEK BANSAL: Specialist in Hair Loss Evaluation &amp; Treatment Planning
+                Dr. Vivek Bansal: Specialist in Hair Loss Evaluation &amp; Treatment Planning
               </h2>
-              <p style={{ fontSize: 14, color: GOLD, fontWeight: 600, letterSpacing: '0.04em' }}>
+
+              <p style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 500,
+                fontSize: 22,
+                color: DARK,
+                lineHeight: 1.35,
+                margin: 0,
+              }}>
                 Verified patient experiences from real consultations and care.
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: '#444' }}>
+
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, lineHeight: 1.65, color: DARK, margin: 0 }}>
                 Dr. Vivek Bansal completed his medical training at the prestigious Penn State College of Medicine, where he was the second physician accepted into the highly selective five-year integrated training program at Penn State Milton S. Hershey Medical Center. During his training, he served as Chief Resident and developed extensive clinical experience caring for patients with a wide range of medical and aesthetic concerns.
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: '#444' }}>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, lineHeight: 1.65, color: DARK, margin: 0 }}>
                 Today, Dr. Bansal works with individuals experiencing hair loss and alopecia, helping them better understand the causes of hair thinning and explore medically guided options for supporting scalp health and hair growth. His approach focuses on education, individualized evaluation, and responsible treatment planning so patients can make informed decisions about addressing their hair loss concerns.
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: '#444' }}>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, lineHeight: 1.65, color: DARK, margin: 0 }}>
                 Dr. Bansal is also involved in physician education and advanced clinical training, contributing to the ongoing development of best practices in patient care.
               </p>
-              <div>
-                <GoldBtn label="Request Your Evaluation" href="#form" />
+
+              <div style={{ marginTop: 8 }}>
+                <a
+                  href="#form"
+                  style={{
+                    display: 'inline-block',
+                    background: GOLD,
+                    color: DARK,
+                    fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
+                    fontWeight: 400,
+                    fontSize: 18,
+                    textTransform: 'uppercase',
+                    padding: '15px 22px',
+                    textDecoration: 'none',
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  Request Your Evaluation
+                </a>
               </div>
             </div>
           </div>
