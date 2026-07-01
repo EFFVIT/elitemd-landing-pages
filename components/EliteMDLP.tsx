@@ -353,84 +353,110 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
 
       {/* ── 3. STEPS SECTION ───────────────────────────────────────────────── */}
       <section style={{ background: WHITE, padding: '72px 48px' }} className="emd-pad">
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+
+          {/* Heading */}
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <h2
               className="emd-h2-xl"
               style={{
                 fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
-                fontWeight: 700,
-                fontSize: 36,
+                fontWeight: 400,
+                fontSize: 40,
                 color: DARK,
-                marginBottom: 12,
+                textTransform: 'uppercase',
+                marginBottom: 20,
               }}
             >
               Your Next Steps Are Simple
             </h2>
-            <p style={{ fontSize: 16, color: '#555', margin: 0 }}>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: DARK, margin: 0 }}>
               It&apos;s simpler than you think, and it starts with learning more.
             </p>
           </div>
 
-          <div className="emd-steps-grid steps-grid">
+          {/* Gold step cards */}
+          <div className="emd-steps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 40 }}>
             {[
-              { icon: <IconCalendar />, title: 'Schedule a Physician-led educational visit' },
-              { icon: <IconPerson />, title: 'Understand Your Hair Loss Pattern' },
-              { icon: <IconPersonStar />, title: 'Review Non-Surgical Care Options' },
+              { img: '/steps-icon-1.png', title: 'Schedule a Physician-led educational visit' },
+              { img: '/steps-icon-2.png', title: 'Understand Your Hair Loss Pattern' },
+              { img: '/steps-icon-3.png', title: 'Review Non-Surgical Care Options' },
             ].map((step, i) => (
               <div
                 key={i}
                 className="emd-step-card"
                 style={{
+                  background: GOLD,
+                  border: '7px solid #a38544',
+                  borderRadius: 31,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  textAlign: 'center',
+                  justifyContent: 'space-between',
                   padding: '40px 32px',
-                  borderRadius: 12,
-                  background: GRAY,
-                  gap: 20,
+                  minHeight: 314,
+                  gap: 24,
                 }}
               >
-                {step.icon}
-                <h3 style={{
-                  fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
+                <img src={step.img} alt="" style={{ height: 120, width: 'auto', objectFit: 'contain' }} />
+                <p style={{
+                  fontFamily: "'Jost', sans-serif",
                   fontWeight: 700,
-                  fontSize: 18,
-                  color: DARK,
+                  fontSize: 22,
+                  color: WHITE,
+                  textAlign: 'center',
+                  margin: 0,
                   lineHeight: 1.35,
                 }}>
                   {step.title}
-                </h3>
+                </p>
               </div>
             ))}
           </div>
 
-          <div
-            className="emd-nosales"
-            style={{ textAlign: 'center', marginTop: 64, padding: '48px 32px', background: GRAY, borderRadius: 12 }}
-          >
-            <p style={{ fontSize: 14, color: '#888', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
+          {/* Below cards — plain white, no gray card */}
+          <div className="emd-nosales" style={{ textAlign: 'center', marginTop: 52 }}>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 18, color: DARK, marginBottom: 40 }}>
               No pressure. No sales pitch. Just answers.
             </p>
             <h2
               className="emd-h2-lg"
               style={{
                 fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
-                fontWeight: 700,
-                fontSize: 30,
+                fontWeight: 400,
+                fontSize: 40,
                 color: DARK,
-                marginBottom: 12,
+                textTransform: 'uppercase',
+                marginBottom: 20,
               }}
             >
               Straight Answers. No Obligation.
             </h2>
-            <p style={{ fontSize: 15, color: '#555', marginBottom: 28, lineHeight: 1.6 }}>
-              You&apos;re in the right place - thousands start here every week.
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: DARK, marginBottom: 36 }}>
+              Educational discussion designed to help you make informed decisions.
             </p>
-            <GoldBtn label="Learn About Hair Loss" href="#form" />
-            <p style={{ marginTop: 14, fontSize: 12, color: '#999', letterSpacing: '0.04em' }}>Fast. Private. No obligation.</p>
+            <a
+              href="#form"
+              style={{
+                display: 'inline-block',
+                background: GOLD,
+                color: DARK,
+                fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
+                fontWeight: 400,
+                fontSize: 18,
+                textTransform: 'uppercase',
+                padding: '15px 22px',
+                textDecoration: 'none',
+                letterSpacing: '0.04em',
+              }}
+            >
+              Learn About Hair Loss
+            </a>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 16, color: DARK, marginTop: 16 }}>
+              Fast. Private. No obligation.
+            </p>
           </div>
+
         </div>
       </section>
 
