@@ -486,52 +486,109 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
 
       {/* ── 4. WHY PATIENTS CHOOSE OUR TEAM ───────────────────────────────── */}
       <section style={{ background: DARK, padding: '72px 48px' }} className="emd-pad">
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+
+          {/* Heading */}
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <h2
               className="emd-h2-xl"
               style={{
                 fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
-                fontWeight: 700,
-                fontSize: 36,
+                fontWeight: 400,
+                fontSize: 40,
                 color: WHITE,
-                marginBottom: 12,
+                textTransform: 'uppercase',
+                marginBottom: 16,
               }}
             >
               Why Patients Choose Our Team
             </h2>
-            <p style={{ fontSize: 16, color: GOLD, margin: 0 }}>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: WHITE, margin: 0 }}>
               Real care. Real support. Real patient-first focus.
             </p>
           </div>
 
+          {/* Gold pill rows — two columns, 3 rows each */}
           <div
             className="emd-why-grid"
-            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px 48px', marginBottom: 48 }}
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px 40px', marginBottom: 52 }}
           >
             {[
               'Information explaining how hair loss patterns may vary',
-              'Conservative, Non-Surgical Focus',
-              'Clear explanations & general educational discussion',
               'Educational discussions informed by medical knowledge',
+              'Conservative, Non-Surgical Focus',
               'Support at Every Stage',
+              'Clear explanations & general educational discussion',
               'Educational discussions informed by clinical experience',
             ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-                <div style={{ flexShrink: 0, marginTop: 2 }}>
-                  <IconCheckBadge />
+              <div
+                key={i}
+                style={{
+                  background: GOLD,
+                  borderRadius: 69,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 0,
+                  overflow: 'hidden',
+                  minHeight: 76,
+                }}
+              >
+                <div style={{ flexShrink: 0, padding: '0 12px 0 16px', display: 'flex', alignItems: 'center' }}>
+                  <img src="/why-check.svg" alt="" width={54} height={53} style={{ display: 'block' }} />
                 </div>
-                <span style={{ color: 'rgba(255,255,255,0.88)', fontSize: 15, lineHeight: 1.6, fontFamily: "'Poppins', sans-serif" }}>
+                <span style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 16,
+                  color: DARK,
+                  lineHeight: 1.3,
+                  paddingRight: 20,
+                }}>
                   {item}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="emd-btn-row" style={{ display: 'flex', justifyContent: 'center', gap: 20 }}>
-            <GoldBtn label="Request Educational Information" href="#form" />
-            <GoldBtn label="Learn About Hair Loss" href="#form" />
+          {/* CTAs — gold fill + border-only outline */}
+          <div className="emd-btn-row" style={{ display: 'flex', justifyContent: 'center', gap: 24, flexWrap: 'wrap' }}>
+            <a
+              href="#form"
+              style={{
+                display: 'inline-block',
+                background: GOLD,
+                color: DARK,
+                fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
+                fontWeight: 400,
+                fontSize: 18,
+                textTransform: 'uppercase',
+                padding: '15px 22px',
+                textDecoration: 'none',
+                letterSpacing: '0.04em',
+              }}
+            >
+              Request Educational Information
+            </a>
+            <a
+              href="#form"
+              style={{
+                display: 'inline-block',
+                background: 'transparent',
+                color: WHITE,
+                border: '2px solid rgba(232,241,250,0.8)',
+                fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
+                fontWeight: 400,
+                fontSize: 18,
+                textTransform: 'uppercase',
+                padding: '13px 22px',
+                textDecoration: 'none',
+                letterSpacing: '0.04em',
+              }}
+            >
+              Learn About Hair Loss
+            </a>
           </div>
+
         </div>
       </section>
 
