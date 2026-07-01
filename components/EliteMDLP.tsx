@@ -394,9 +394,9 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           {/* Gold step cards */}
           <div className="emd-steps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 40 }}>
             {[
-              { img: '/steps-icon-1.png', title: 'Schedule a Physician-led educational visit' },
-              { img: '/steps-icon-2.png', title: 'Understand Your Hair Loss Pattern' },
-              { img: '/steps-icon-3.png', title: 'Review Non-Surgical Care Options' },
+              { img: '/steps-icon-1.svg', title: 'Schedule a Physician-led educational visit' },
+              { img: '/steps-icon-2.svg', title: 'Understand Your Hair Loss Pattern' },
+              { img: '/steps-icon-3.svg', title: 'Review Non-Surgical Care Options' },
             ].map((step, i) => (
               <div
                 key={i}
