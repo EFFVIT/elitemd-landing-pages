@@ -239,75 +239,97 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       {/* ── 2. HERO ────────────────────────────────────────────────────────── */}
       <section
         className="emd-hero"
-        style={{ background: DARK, position: 'relative', overflow: 'hidden', minHeight: 640 }}
+        style={{ position: 'relative', overflow: 'hidden', minHeight: 780, background: DARK }}
       >
-        {/* Doctor image fading left side */}
+        {/* Layer 1: room background photo */}
         <img
-          src={HERO_PHOTO}
-          alt="Dr. Vivek Bansal"
-          className="emd-hero-doctor"
+          src="/hero-bg-room.png"
+          alt=""
+          aria-hidden="true"
           style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            height: '100%',
-            width: '42%',
-            objectFit: 'cover',
-            objectPosition: 'top center',
-            maskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 50%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 50%, transparent 100%)',
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center',
           }}
         />
 
+        {/* Layer 2: dark gradient — fades bottom ~35%-89% */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 1,
+          background: 'linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.85) 89%)',
+        }} />
+
+        {/* Layer 3: Dr. Bansal portrait — left ~55% */}
+        <img
+          src="/hero-dr-bansal.png"
+          alt="Dr. Vivek Bansal"
+          className="emd-hero-doctor"
+          style={{
+            position: 'absolute', left: 0, top: 0, zIndex: 2,
+            width: '55%', height: '100%',
+            objectFit: 'cover', objectPosition: 'top center',
+          }}
+        />
+
+        {/* Layer 4: content */}
         <div
           className="emd-hero-content"
-          style={{ display: 'flex', position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '48px' }}
+          style={{
+            position: 'relative', zIndex: 3,
+            maxWidth: 1600, margin: '0 auto', padding: '0 48px',
+            minHeight: 780, display: 'flex', flexDirection: 'column',
+          }}
         >
-          {/* Left */}
-          <div
-            className="emd-hero-left"
-            style={{ flex: '1 1 58%', paddingRight: 48, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20 }}
-          >
-            <h1
-              className="emd-hero-h1"
-              style={{
+          {/* Form card — upper right */}
+          <div id="form" className="emd-hero-form" style={{ alignSelf: 'flex-end', marginTop: 60, width: 540 }}>
+            <div style={{ background: WHITE, boxShadow: '10px 10px 10px rgba(0,0,0,0.32)' }}>
+              <p style={{
+                textAlign: 'center',
+                padding: '28px 24px 8px',
                 fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
-                fontWeight: 700,
-                fontSize: 40,
-                color: WHITE,
-                lineHeight: 1.2,
+                fontSize: 22,
+                color: DARK,
                 margin: 0,
-              }}
-            >
-              A Clear Medical Path for Hair Thinning &amp; Hair Loss
-            </h1>
-            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: 18, color: 'rgba(255,255,255,0.8)', margin: 0 }}>
-              General information reviewed during educational visits
-            </h2>
-            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, margin: 0 }}>
-              Request educational information to better understand hair loss topics.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
-              <img src={REVIEWS_LOGO} alt="Google Reviews" style={{ height: 40, width: 'auto' }} />
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: 13, fontWeight: 500 }}>Patient-focused care.</span>
-                <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: 13, fontWeight: 500 }}>No pressure educational discussions.</span>
-              </div>
+                lineHeight: 1.35,
+              }}>
+                Request Your Hair Consultation
+              </p>
+              <GhlForm formId={heroFormId} height={443} formName="Banner Form - Hair Loss" />
             </div>
           </div>
 
-          {/* Right - Form Card */}
+          {/* Bottom row — headline left, stars right */}
           <div
-            className="emd-hero-right"
-            style={{ flex: '1 1 42%' }}
+            className="emd-hero-bottom"
+            style={{ display: 'flex', alignItems: 'flex-end', marginTop: 'auto', paddingBottom: 48, gap: 32 }}
           >
-            <div style={{ background: WHITE, borderRadius: 12, overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.35)' }}>
-              <div style={{ background: GOLD, padding: '16px 24px', textAlign: 'center' }}>
-                <p style={{ color: WHITE, fontWeight: 700, fontSize: 16, margin: 0, fontFamily: "'Roboto', sans-serif", letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                  Request Your Hair Consultation
-                </p>
-              </div>
-              <GhlForm formId={heroFormId} height={443} formName="Banner Form - Hair Loss" />
+            <div className="emd-hero-left" style={{ flex: '0 0 53%' }}>
+              <h1
+                className="emd-hero-h1"
+                style={{
+                  fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
+                  fontWeight: 400,
+                  fontSize: 40,
+                  color: WHITE,
+                  textTransform: 'uppercase',
+                  lineHeight: 1.2,
+                  margin: '0 0 20px',
+                }}
+              >
+                A Clear Medical Path for Hair Thinning &amp; Hair Loss
+              </h1>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 20, color: WHITE, margin: '0 0 8px' }}>
+                General information reviewed during educational visits
+              </p>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 15, color: 'rgba(255,255,255,0.8)', margin: 0, lineHeight: 1.6 }}>
+                Request educational information to better understand hair loss topics.
+              </p>
+            </div>
+
+            <div className="emd-hero-right" style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 16, paddingLeft: 16 }}>
+              <img src={REVIEWS_LOGO} alt="Google Reviews" style={{ height: 38, width: 'auto', flexShrink: 0 }} />
+              <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 16, color: WHITE, margin: 0, lineHeight: 1.4 }}>
+                Patient-focused care.<br />No pressure educational discussions.
+              </p>
             </div>
           </div>
         </div>

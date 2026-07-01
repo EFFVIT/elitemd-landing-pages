@@ -74,10 +74,12 @@ button { font-family: inherit; }
 
   /* Hero */
   .emd-hero         { min-height: auto !important; }
-  .emd-hero-content { flex-direction: column !important; }
-  .emd-hero-left    { width: 100% !important; padding: 32px 20px 24px !important; justify-content: flex-start !important; }
-  .emd-hero-h1      { font-size: 28px !important; }
-  .emd-hero-right   { width: 100% !important; padding: 12px 20px 36px !important; }
+  .emd-hero-content { padding: 0 20px !important; min-height: auto !important; }
+  .emd-hero-form    { width: 100% !important; align-self: stretch !important; margin-top: 24px !important; }
+  .emd-hero-bottom  { flex-direction: column !important; padding-bottom: 32px !important; gap: 24px !important; }
+  .emd-hero-left    { flex: unset !important; width: 100% !important; }
+  .emd-hero-h1      { font-size: 26px !important; }
+  .emd-hero-right   { flex: unset !important; width: 100% !important; padding-left: 0 !important; }
 
   /* Section padding */
   .emd-pad     { padding-left: 20px !important; padding-right: 20px !important; }
