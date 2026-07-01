@@ -76,7 +76,7 @@ button { font-family: inherit; }
   .emd-hero         { min-height: auto !important; }
   .emd-hero-content { padding: 0 20px !important; min-height: auto !important; }
   .emd-hero-form    { width: 100% !important; align-self: stretch !important; margin-top: 24px !important; }
-  .emd-hero-bottom  { flex-direction: column !important; padding-bottom: 32px !important; gap: 24px !important; }
+  .emd-hero-bottom  { position: static !important; flex-direction: column !important; padding-bottom: 32px !important; gap: 24px !important; left: auto !important; right: auto !important; bottom: auto !important; }
   .emd-hero-left    { flex: unset !important; width: 100% !important; }
   .emd-hero-h1      { font-size: 26px !important; }
   .emd-hero-right   { flex: unset !important; width: 100% !important; padding-left: 0 !important; }

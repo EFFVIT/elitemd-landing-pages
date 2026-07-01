@@ -271,7 +271,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       {/* ── 2. HERO ────────────────────────────────────────────────────────── */}
       <section
         className="emd-hero"
-        style={{ position: 'relative', overflow: 'hidden', minHeight: 780, background: DARK }}
+        style={{ position: 'relative', overflow: 'hidden', minHeight: 660, background: DARK }}
       >
         {/* Layer 1: room background photo */}
         <img
@@ -308,7 +308,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           style={{
             position: 'relative', zIndex: 3,
             maxWidth: 1600, margin: '0 auto', padding: '0 48px',
-            minHeight: 780, display: 'flex', flexDirection: 'column',
+            minHeight: 660, display: 'flex', flexDirection: 'column',
           }}
         >
           {/* Form card — upper right */}
@@ -331,10 +331,10 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
             </div>
           </div>
 
-          {/* Bottom row — headline left, stars right */}
+          {/* Bottom row — absolutely positioned so it overlaps the form's lower zone */}
           <div
             className="emd-hero-bottom"
-            style={{ display: 'flex', alignItems: 'flex-end', marginTop: 'auto', paddingBottom: 48, gap: 32 }}
+            style={{ position: 'absolute', bottom: 36, left: 48, right: 48, display: 'flex', alignItems: 'flex-end', gap: 32 }}
           >
             <div className="emd-hero-left" style={{ flex: '0 0 53%' }}>
               <h1
