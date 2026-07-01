@@ -312,8 +312,8 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           }}
         >
           {/* Form card — upper right */}
-          <div id="form" className="emd-hero-form" style={{ alignSelf: 'flex-end', marginTop: 180, width: 480 }}>
-            <div style={{ background: WHITE, boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}>
+          <div id="form" className="emd-hero-form" style={{ alignSelf: 'flex-end', marginTop: 60, width: 540 }}>
+            <div style={{ background: WHITE, boxShadow: '10px 10px 10px rgba(0,0,0,0.32)' }}>
               <p style={{
                 textAlign: 'center',
                 padding: '28px 24px 8px',
@@ -323,7 +323,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 margin: 0,
                 lineHeight: 1.35,
               }}>
-                Request Educational Information
+                Request Your Hair Consultation
               </p>
               <GhlForm formId={heroFormId} height={443} formName="Banner Form - Hair Loss" />
             </div>
