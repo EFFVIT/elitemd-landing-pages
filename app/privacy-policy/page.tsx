@@ -162,6 +162,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <p style={{ fontSize: 13, margin: 0 }}>
           <a href="/privacy-policy" style={{ color: '#555', textDecoration: 'none', marginRight: 16 }}>Privacy Policy</a>
+          <a href="/hipaa-policy" style={{ color: '#555', textDecoration: 'none', marginRight: 16 }}>HIPAA Policy</a>
           <a href="/cookie-policy" style={{ color: '#555', textDecoration: 'none' }}>Cookie Policy</a>
         </p>
       </footer>
