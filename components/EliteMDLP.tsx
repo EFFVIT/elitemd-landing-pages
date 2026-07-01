@@ -252,23 +252,23 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           }}
         />
 
-        {/* Layer 2: dark gradient — fades bottom ~35%-89% */}
-        <div style={{
-          position: 'absolute', inset: 0, zIndex: 1,
-          background: 'linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.85) 89%)',
-        }} />
-
-        {/* Layer 3: Dr. Bansal portrait — left ~55% */}
+        {/* Layer 2: Dr. Bansal portrait — left ~55% */}
         <img
           src="/hero-dr-bansal.png"
           alt="Dr. Vivek Bansal"
           className="emd-hero-doctor"
           style={{
-            position: 'absolute', left: 0, top: 0, zIndex: 2,
+            position: 'absolute', left: 0, top: 0, zIndex: 1,
             width: '55%', height: '100%',
             objectFit: 'cover', objectPosition: 'top center',
           }}
         />
+
+        {/* Layer 3: dark gradient on top of both images — fades bottom ~35%-89% */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 2,
+          background: 'linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.85) 89%)',
+        }} />
 
         {/* Layer 4: content */}
         <div
