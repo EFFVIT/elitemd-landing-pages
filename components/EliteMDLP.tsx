@@ -325,7 +325,9 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
               }}>
                 Request Your Hair Consultation
               </p>
-              <GhlForm formId={heroFormId} height={443} formName="Banner Form - Hair Loss" />
+              <div style={{ padding: '0 16px 16px' }}>
+                <GhlForm formId={heroFormId} height={443} formName="Banner Form - Hair Loss" />
+              </div>
             </div>
           </div>
 
