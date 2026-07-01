@@ -1018,7 +1018,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       </section>
 
       {/* ── 11. FOOTER BAR ─────────────────────────────────────────────────── */}
-      <footer style={{ background: DARK, padding: '40px 48px' }}>
+      <footer className="emd-footer-contact" style={{ background: DARK, padding: '40px 48px' }}>
         <div
           className="emd-contact-row"
           style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 64, flexWrap: 'wrap' }}

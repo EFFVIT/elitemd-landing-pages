@@ -75,11 +75,11 @@ button { font-family: inherit; }
   /* Hero */
   .emd-hero         { min-height: auto !important; }
   .emd-hero-content { padding: 0 20px !important; min-height: auto !important; }
-  .emd-hero-form    { width: 100% !important; align-self: stretch !important; margin-top: 24px !important; }
-  .emd-hero-bottom  { position: static !important; flex-direction: column !important; padding-bottom: 32px !important; gap: 24px !important; left: auto !important; right: auto !important; bottom: auto !important; }
+  .emd-hero-form    { width: 100% !important; align-self: stretch !important; margin-top: 24px !important; margin-right: 0 !important; }
+  .emd-hero-bottom  { position: static !important; width: 100% !important; flex-direction: column !important; padding-bottom: 32px !important; gap: 24px !important; left: auto !important; right: auto !important; bottom: auto !important; margin-top: 16px !important; }
   .emd-hero-left    { flex: unset !important; width: 100% !important; }
   .emd-hero-h1      { font-size: 26px !important; }
-  .emd-hero-right   { flex: unset !important; width: 100% !important; padding-left: 0 !important; }
+  .emd-hero-right   { align-self: auto !important; margin-right: 0 !important; width: 100% !important; padding-left: 0 !important; justify-content: center !important; }
 
   /* Section padding */
   .emd-pad     { padding-left: 20px !important; padding-right: 20px !important; }
@@ -134,7 +134,10 @@ button { font-family: inherit; }
   .emd-map-outer { padding: 40px 20px 0 !important; }
 
   /* Phone + address - stack vertically */
-  .emd-contact-row { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; padding: 32px 0 20px !important; }
+  .emd-contact-row { flex-direction: column !important; align-items: center !important; gap: 20px !important; }
+
+  /* Footer outer padding */
+  .emd-footer-contact { padding: 32px 20px !important; }
 
   /* Footer copyright padding */
   .emd-footer-bar { padding: 16px 20px 28px !important; }
@@ -142,6 +145,12 @@ button { font-family: inherit; }
   /* Why section bullets grid */
   .emd-why-grid { grid-template-columns: 1fr !important; }
 
+  /* Reviews - quote overhang shrinks on mobile */
+  .emd-reviews-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+
   /* FAQ */
   .emd-faq-outer { padding: 48px 20px !important; }
+
+  /* Confidence columns */
+  .emd-confidence-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
