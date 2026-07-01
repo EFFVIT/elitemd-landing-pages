@@ -312,8 +312,8 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           }}
         >
           {/* Form card — upper right */}
-          <div id="form" className="emd-hero-form" style={{ alignSelf: 'flex-end', marginTop: 60, width: 540 }}>
-            <div style={{ background: WHITE, boxShadow: '10px 10px 10px rgba(0,0,0,0.32)' }}>
+          <div id="form" className="emd-hero-form" style={{ alignSelf: 'flex-end', marginTop: 60, marginRight: 16, width: 520 }}>
+            <div style={{ background: WHITE, borderRadius: 10, boxShadow: '0 8px 32px rgba(0,0,0,0.22)', overflow: 'hidden' }}>
               <p style={{
                 textAlign: 'center',
                 padding: '28px 24px 8px',
