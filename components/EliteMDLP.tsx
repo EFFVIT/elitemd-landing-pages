@@ -735,53 +735,54 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                   style={{
                     background: '#edeeee',
                     borderRadius: 15,
-                    overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
+                    alignItems: 'center',
                     minHeight: 339,
+                    padding: '44px 24px 20px',
+                    gap: 16,
                   }}
                 >
-                  {/* Card body */}
-                  <div style={{ flex: 1, padding: '44px 28px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
-                    {/* 5 stars */}
-                    <div style={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
-                      {[0,1,2,3,4].map(s => (
-                        <img key={s} src="/review-star.svg" alt="" width={27} height={25} style={{ display: 'block' }} />
-                      ))}
-                    </div>
-                    {/* Review text */}
-                    <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 16, color: DARK, lineHeight: 1.65, textAlign: 'center', margin: 0, flex: 1 }}>
-                      &quot;{review.text}&quot;
-                    </p>
-                    {/* Read more button */}
-                    <a
-                      href="#form"
-                      style={{
-                        fontFamily: "'Roboto', sans-serif",
-                        fontWeight: 700,
-                        fontSize: 13,
-                        color: DARK,
-                        background: GOLD,
-                        padding: '9px 24px',
-                        letterSpacing: '0.06em',
-                        textDecoration: 'none',
-                        textTransform: 'uppercase',
-                        display: 'inline-block',
-                        marginTop: 8,
-                      }}
-                    >
-                      Read More
-                    </a>
+                  {/* 5 stars */}
+                  <div style={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
+                    {[0,1,2,3,4].map(s => (
+                      <img key={s} src="/review-star.svg" alt="" width={27} height={25} style={{ display: 'block' }} />
+                    ))}
                   </div>
-                  {/* White footer strip with reviewer name */}
+                  {/* Review text */}
+                  <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 16, color: DARK, lineHeight: 1.65, textAlign: 'center', margin: 0, flex: 1 }}>
+                    &quot;{review.text}&quot;
+                  </p>
+                  {/* Read more button */}
+                  <a
+                    href="#form"
+                    style={{
+                      fontFamily: "'Roboto', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 13,
+                      color: DARK,
+                      background: GOLD,
+                      padding: '9px 24px',
+                      letterSpacing: '0.06em',
+                      textDecoration: 'none',
+                      textTransform: 'uppercase',
+                      display: 'inline-block',
+                    }}
+                  >
+                    Read More
+                  </a>
+                  {/* White name box — floating rounded rect with border */}
                   <div
                     style={{
+                      width: '100%',
                       background: WHITE,
-                      minHeight: 72,
+                      borderRadius: 10,
+                      border: '1px solid #c8c8c8',
+                      padding: '16px 24px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      padding: '16px 24px',
+                      marginTop: 4,
                     }}
                   >
                     <span style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: GOLD, textAlign: 'center' }}>
