@@ -678,27 +678,29 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       </section>
 
       {/* ── 6. REVIEWS ─────────────────────────────────────────────────────── */}
-      <section style={{ background: GRAY, padding: '72px 48px' }} className="emd-pad">
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+      <section style={{ background: WHITE, padding: '72px 48px 80px' }} className="emd-pad">
+        <div style={{ maxWidth: 1300, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 64 }}>
             <h2
               className="emd-h2-xl"
               style={{
                 fontFamily: 'copperplate, "Copperplate Gothic Light", "Copperplate Gothic", serif',
-                fontWeight: 700,
-                fontSize: 36,
+                fontWeight: 400,
+                fontSize: 40,
                 color: DARK,
-                marginBottom: 12,
+                textTransform: 'uppercase',
+                lineHeight: 1.2,
+                marginBottom: 16,
               }}
             >
               Real Patients. Real Experiences.
             </h2>
-            <p style={{ fontSize: 16, color: '#555', margin: 0 }}>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: DARK, margin: 0, lineHeight: 1.4 }}>
               Verified patient experiences shared after their visit.
             </p>
           </div>
 
-          <div className="emd-reviews-grid reviews-grid">
+          <div className="emd-reviews-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
             {[
               {
                 text: 'The staff and experience have been outstanding during my hair restoration. I\'m currently 6 months in and pleased with the progress so far. The process was comfortable, and I was happy with how everything healed.',
@@ -716,25 +718,77 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
               <div
                 key={i}
                 style={{
-                  background: WHITE,
-                  borderRadius: 12,
-                  padding: '28px 24px',
-                  boxShadow: '0 2px 16px rgba(0,0,0,0.07)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 14,
+                  position: 'relative',
+                  paddingTop: 28,
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <img
-                    src={i === 0 ? '/review-avatar-1.png' : '/review-avatar-2.png'}
-                    alt="Google Reviews"
-                    style={{ height: 48, width: 'auto' }}
-                  />
-                  <FiveStars />
+                {/* Gold quote mark — hangs above card */}
+                <img
+                  src="/review-quote.svg"
+                  alt=""
+                  width={67}
+                  height={48}
+                  style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'block' }}
+                />
+                {/* Card */}
+                <div
+                  style={{
+                    background: '#edeeee',
+                    borderRadius: 15,
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    minHeight: 339,
+                  }}
+                >
+                  {/* Card body */}
+                  <div style={{ flex: 1, padding: '44px 28px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+                    {/* 5 stars */}
+                    <div style={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
+                      {[0,1,2,3,4].map(s => (
+                        <img key={s} src="/review-star.svg" alt="" width={27} height={25} style={{ display: 'block' }} />
+                      ))}
+                    </div>
+                    {/* Review text */}
+                    <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 16, color: DARK, lineHeight: 1.65, textAlign: 'center', margin: 0, flex: 1 }}>
+                      &quot;{review.text}&quot;
+                    </p>
+                    {/* Read more button */}
+                    <a
+                      href="#form"
+                      style={{
+                        fontFamily: "'Roboto', sans-serif",
+                        fontWeight: 700,
+                        fontSize: 13,
+                        color: DARK,
+                        background: GOLD,
+                        padding: '9px 24px',
+                        letterSpacing: '0.06em',
+                        textDecoration: 'none',
+                        textTransform: 'uppercase',
+                        display: 'inline-block',
+                        marginTop: 8,
+                      }}
+                    >
+                      Read More
+                    </a>
+                  </div>
+                  {/* White footer strip with reviewer name */}
+                  <div
+                    style={{
+                      background: WHITE,
+                      minHeight: 72,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '16px 24px',
+                    }}
+                  >
+                    <span style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: GOLD, textAlign: 'center' }}>
+                      {review.name}
+                    </span>
+                  </div>
                 </div>
-                <p style={{ fontSize: 14, lineHeight: 1.75, color: '#444', flex: 1 }}>&quot;{review.text}&quot;</p>
-                <p style={{ fontSize: 13, fontWeight: 700, color: DARK }}>{review.name}</p>
               </div>
             ))}
           </div>
