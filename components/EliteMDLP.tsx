@@ -331,12 +331,20 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
             </div>
           </div>
 
-          {/* Bottom row — absolutely positioned so it overlaps the form's lower zone */}
+          {/* Stars + trust text — in flow, below the form, right-aligned */}
+          <div className="emd-hero-right" style={{ alignSelf: 'flex-end', marginRight: 16, display: 'flex', alignItems: 'center', gap: 16, padding: '20px 0' }}>
+            <img src={REVIEWS_LOGO} alt="Google Reviews" style={{ height: 38, width: 'auto', flexShrink: 0 }} />
+            <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 16, color: WHITE, margin: 0, lineHeight: 1.4 }}>
+              Patient-focused care.<br />No pressure educational discussions.
+            </p>
+          </div>
+
+          {/* H1 + subtitle — absolutely positioned at bottom left */}
           <div
             className="emd-hero-bottom"
-            style={{ position: 'absolute', bottom: 36, left: 48, right: 48, display: 'flex', alignItems: 'flex-end', gap: 32 }}
+            style={{ position: 'absolute', bottom: 36, left: 48, width: '53%' }}
           >
-            <div className="emd-hero-left" style={{ flex: '0 0 53%' }}>
+            <div className="emd-hero-left">
               <h1
                 className="emd-hero-h1"
                 style={{
@@ -356,13 +364,6 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
               </p>
               <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 15, color: 'rgba(255,255,255,0.8)', margin: 0, lineHeight: 1.6 }}>
                 Request educational information to better understand hair loss topics.
-              </p>
-            </div>
-
-            <div className="emd-hero-right" style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 16, paddingLeft: 16 }}>
-              <img src={REVIEWS_LOGO} alt="Google Reviews" style={{ height: 38, width: 'auto', flexShrink: 0 }} />
-              <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 16, color: WHITE, margin: 0, lineHeight: 1.4 }}>
-                Patient-focused care.<br />No pressure educational discussions.
               </p>
             </div>
           </div>
