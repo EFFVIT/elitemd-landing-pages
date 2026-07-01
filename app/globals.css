@@ -86,8 +86,8 @@ button { font-family: inherit; }
   .emd-nosales { padding: 40px 20px 48px !important; }
 
   /* Steps */
-  .emd-steps-grid { grid-template-columns: 1fr !important; }
-  .emd-step-card  { min-height: auto !important; }
+  .emd-steps-grid { flex-direction: column !important; align-items: center !important; }
+  .emd-step-card  { width: 100% !important; max-width: 340px !important; height: auto !important; min-height: 240px !important; }
 
   /* Features */
   .emd-features-grid { grid-template-columns: 1fr !important; }

@@ -391,12 +391,12 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
             </p>
           </div>
 
-          {/* Gold step cards */}
-          <div className="emd-steps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 40 }}>
+          {/* Gold step cards — 295×314px per Figma */}
+          <div className="emd-steps-grid" style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
             {[
-              { img: '/steps-icon-1.svg', title: 'Schedule a Physician-led educational visit' },
-              { img: '/steps-icon-2.svg', title: 'Understand Your Hair Loss Pattern' },
-              { img: '/steps-icon-3.svg', title: 'Review Non-Surgical Care Options' },
+              { img: '/steps-icon-1.svg', w: 106, h: 119, title: 'Schedule a Physician-led educational visit' },
+              { img: '/steps-icon-2.svg', w: 124, h: 125, title: 'Understand Your Hair Loss Pattern' },
+              { img: '/steps-icon-3.svg', w: 133, h: 139, title: 'Review Non-Surgical Care Options' },
             ].map((step, i) => (
               <div
                 key={i}
@@ -405,24 +405,32 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                   background: GOLD,
                   border: '7px solid #a38544',
                   borderRadius: 31,
+                  width: 295,
+                  height: 314,
+                  flexShrink: 0,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  padding: '40px 32px',
-                  minHeight: 314,
-                  gap: 24,
+                  padding: '36px 24px 32px',
+                  boxSizing: 'border-box',
                 }}
               >
-                <img src={step.img} alt="" style={{ height: 120, width: 'auto', objectFit: 'contain' }} />
+                <img
+                  src={step.img}
+                  alt=""
+                  width={step.w}
+                  height={step.h}
+                  style={{ display: 'block', maxWidth: '100%', objectFit: 'contain' }}
+                />
                 <p style={{
                   fontFamily: "'Jost', sans-serif",
                   fontWeight: 700,
-                  fontSize: 22,
+                  fontSize: 21,
                   color: WHITE,
                   textAlign: 'center',
                   margin: 0,
-                  lineHeight: 1.35,
+                  lineHeight: 1.3,
                 }}>
                   {step.title}
                 </p>
