@@ -216,7 +216,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
         style={{
           background: DARK,
           padding: '0 48px',
-          height: 72,
+          height: 80,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -226,11 +226,27 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           src={LOGO_URL}
           alt="Elite MD Plastic Surgery"
           className="emd-nav-logo"
-          style={{ height: 52, width: 'auto' }}
+          style={{ height: 46, width: 'auto' }}
         />
-        <div className="emd-nav-btns" style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          <GoldBtn label="Request Your Consultation" href="#form" style={{ fontSize: 13, padding: '10px 16px' }} />
-          <a href={PHONE_HREF} style={{ color: WHITE, textDecoration: 'none', fontWeight: 600, fontSize: 15, fontFamily: "'Roboto', sans-serif", whiteSpace: 'nowrap' }}>
+        <div className="emd-nav-btns" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+          <GoldBtn
+            label="Request Your Consultation"
+            href="#form"
+            style={{ fontSize: 13, padding: '11px 20px', color: DARK, letterSpacing: '0.04em' }}
+          />
+          <div style={{ width: 1, height: 24, background: 'rgba(255,255,255,0.2)' }} />
+          <a
+            href={PHONE_HREF}
+            style={{
+              color: WHITE,
+              textDecoration: 'none',
+              fontWeight: 500,
+              fontSize: 15,
+              fontFamily: "'Roboto', sans-serif",
+              whiteSpace: 'nowrap',
+              letterSpacing: '0.02em',
+            }}
+          >
             {PHONE_DISPLAY}
           </a>
         </div>
