@@ -700,7 +700,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
             </p>
           </div>
 
-          <div className="emd-reviews-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+          <div className="emd-reviews-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32, alignItems: 'stretch' }}>
             {[
               {
                 text: 'The staff and experience have been outstanding during my hair restoration. I\'m currently 6 months in and pleased with the progress so far. The process was comfortable, and I was happy with how everything healed.',
@@ -720,6 +720,8 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 style={{
                   position: 'relative',
                   paddingTop: 28,
+                  display: 'flex',
+                  flexDirection: 'column',
                 }}
               >
                 {/* Gold quote mark — hangs above card */}
@@ -733,12 +735,12 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 {/* Card */}
                 <div
                   style={{
+                    flex: 1,
                     background: '#edeeee',
                     borderRadius: 15,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    minHeight: 339,
                     padding: '44px 24px 20px',
                     gap: 16,
                   }}
@@ -753,24 +755,6 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                   <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 16, color: DARK, lineHeight: 1.65, textAlign: 'center', margin: 0, flex: 1 }}>
                     &quot;{review.text}&quot;
                   </p>
-                  {/* Read more button */}
-                  <a
-                    href="#form"
-                    style={{
-                      fontFamily: "'Roboto', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 13,
-                      color: DARK,
-                      background: GOLD,
-                      padding: '9px 24px',
-                      letterSpacing: '0.06em',
-                      textDecoration: 'none',
-                      textTransform: 'uppercase',
-                      display: 'inline-block',
-                    }}
-                  >
-                    Read More
-                  </a>
                   {/* White name box — floating rounded rect with border */}
                   <div
                     style={{
@@ -782,7 +766,6 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginTop: 4,
                     }}
                   >
                     <span style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: GOLD, textAlign: 'center' }}>
