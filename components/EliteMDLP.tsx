@@ -974,15 +974,17 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       </section>
 
       {/* ── 10. MAP + BOTTOM FORM ──────────────────────────────────────────── */}
-      <section id="form" style={{ background: PANEL, padding: '72px 48px 0' }} className="emd-map-outer">
+      <section id="form" style={{ background: DARK, padding: '72px 48px 0' }} className="emd-map-outer">
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div className="emd-map-form map-form-grid">
             {/* Map */}
             <div
               className="emd-map-col"
-              style={{ minHeight: 400, borderRadius: 12, overflow: 'hidden', background: '#ddd', position: 'relative' }}
+              style={{ minHeight: 400, borderRadius: 12, overflow: 'hidden', background: '#333', position: 'relative' }}
             >
-              {/* Note: add /public/footer-map.png manually */}
+              <div style={{ position: 'absolute', top: 16, left: 16, zIndex: 2, background: WHITE, padding: '6px 14px', borderRadius: 4, fontSize: 11, fontFamily: "'Roboto', sans-serif", fontWeight: 700, letterSpacing: '0.07em', color: DARK, textTransform: 'uppercase' }}>
+                Visit Our Practice
+              </div>
               <img
                 src="/footer-map.png"
                 alt={ADDRESS}
@@ -995,43 +997,42 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                     parent.style.display = 'flex'
                     parent.style.alignItems = 'center'
                     parent.style.justifyContent = 'center'
-                    parent.innerHTML = `<p style="color:#666;font-size:14px;text-align:center;padding:24px">${ADDRESS}</p>`
+                    parent.innerHTML = `<p style="color:#aaa;font-size:14px;text-align:center;padding:24px">${ADDRESS}</p>`
                   }
                 }}
               />
             </div>
 
             {/* Form */}
-            <div className="emd-form-col" style={{ paddingBottom: 72 }}>
-              <div style={{ background: WHITE, borderRadius: 12, overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}>
-                <div style={{ background: GOLD, padding: '16px 24px', textAlign: 'center' }}>
-                  <p style={{ color: WHITE, fontWeight: 700, fontSize: 16, margin: 0, fontFamily: "'Roboto', sans-serif", letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    Request Your Hair Consultation
-                  </p>
-                </div>
-                <GhlForm formId={bottomFormId} height={443} formName="Footer Form - Hair Loss" />
-              </div>
+            <div className="emd-form-col" style={{ paddingBottom: 40, display: 'flex', flexDirection: 'column' }}>
+              <GhlForm formId={bottomFormId} height={443} formName="Footer Form - Hair Loss" />
+              <p style={{ textAlign: 'center', color: WHITE, fontFamily: "'Roboto', sans-serif", fontWeight: 700, fontSize: 14, margin: '20px 0 0', letterSpacing: '0.01em' }}>
+                Your information is private and never shared.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── 11. FOOTER BAR ─────────────────────────────────────────────────── */}
-      <footer style={{ background: DARK, padding: '28px 48px' }}>
+      <footer style={{ background: DARK, padding: '40px 48px' }}>
         <div
           className="emd-contact-row"
-          style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 40, flexWrap: 'wrap' }}
+          style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 64, flexWrap: 'wrap' }}
         >
           <a
             href={PHONE_HREF}
-            style={{ display: 'flex', alignItems: 'center', gap: 10, color: GOLD, textDecoration: 'none', fontWeight: 600, fontSize: 16, fontFamily: "'Roboto', sans-serif" }}
+            style={{ display: 'flex', alignItems: 'center', gap: 12, color: WHITE, textDecoration: 'none', fontWeight: 600, fontSize: 16, fontFamily: "'Roboto', sans-serif" }}
           >
             <PhoneIcon />
             {PHONE_DISPLAY}
           </a>
-          <span style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'rgba(255,255,255,0.75)', fontSize: 14 }}>
+          <span style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: WHITE, fontFamily: "'Roboto', sans-serif" }}>
             <AddressIcon />
-            {ADDRESS}
+            <span>
+              <span style={{ display: 'block', fontWeight: 700, fontSize: 15 }}>Danville, CA 94506</span>
+              <span style={{ display: 'block', fontSize: 14, opacity: 0.8 }}>4185 Blackhawk Plaza Circle</span>
+            </span>
           </span>
         </div>
       </footer>
@@ -1039,14 +1040,14 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
       {/* ── 12. COPYRIGHT ──────────────────────────────────────────────────── */}
       <div
         className="emd-footer-bar"
-        style={{ background: '#0a0a0a', padding: '16px 48px 20px', textAlign: 'center' }}
+        style={{ background: '#0a0a0a', padding: '16px 48px 24px', textAlign: 'center' }}
       >
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', margin: 0 }}>
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.35)', margin: 0, fontFamily: "'Roboto', sans-serif", letterSpacing: '0.04em' }}>
           &copy; 2026 Elite MD Plastic Surgery Danville
           {' '}&bull;{' '}
           <a href="/privacy-policy" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none', fontWeight: 500 }}>PRIVACY POLICY</a>
           {' '}&bull;{' '}
-          <a href="/cookie-policy" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none', fontWeight: 500 }}>COOKIE POLICY</a>
+          <a href="/hipaa-policy" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none', fontWeight: 500 }}>HIPAA POLICY</a>
         </p>
       </div>
     </div>
