@@ -15,12 +15,14 @@ export default function GhlForm({
   formId,
   height = 620,
   formName = '',
+  host = 'api.leadconnectorhq.com',
 }: {
   formId: string
   height?: number
   formName?: string
+  host?: string
 }) {
-  const [src, setSrc] = useState(`https://api.leadconnectorhq.com/widget/form/${formId}`)
+  const [src, setSrc] = useState(`https://${host}/widget/form/${formId}`)
   const iframeId = `inline-${formId}`
   const retries = useRef(0)
 
@@ -46,7 +48,7 @@ export default function GhlForm({
     }
 
     if (out.toString()) {
-      setSrc(`https://api.leadconnectorhq.com/widget/form/${formId}?${out.toString()}`)
+      setSrc(`https://${host}/widget/form/${formId}?${out.toString()}`)
     }
   }, [formId])
 
