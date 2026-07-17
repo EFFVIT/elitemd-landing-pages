@@ -56,7 +56,7 @@ export default function EliteAntiWrinkleLP() {
               <span>Board Certified (FAAD)</span><span>Harvard &amp; Penn State</span><span>All Injections by Dr. Sonia</span><span>500+ Five-Star Reviews</span>
             </div>
           </div>
-          <img src="/images/vip/dr-sonia.png" alt="Dr. Sonia Badreshia-Bansal, MD, FAAD" style={{ width: '100%', maxWidth: 380, borderRadius: 8, justifySelf: 'center' }} />
+          <img src="/images/vip/dr-sonia.webp" alt="Dr. Sonia Badreshia-Bansal, MD, FAAD" style={{ width: '100%', maxWidth: 380, borderRadius: 8, justifySelf: 'center' }} />
         </div>
       </section>
 
@@ -77,6 +77,26 @@ export default function EliteAntiWrinkleLP() {
             <li>FAAD &mdash; Fellow, American Academy of Dermatology</li>
             <li>Comprehensive consultation before every treatment</li>
           </ul>
+        </div>
+      </section>
+
+      {/* HEAR FROM DR. SONIA */}
+      <section style={{ background: CREAM, padding: '0 24px 64px' }}>
+        <div style={{ maxWidth: 1060, margin: '0 auto' }}>
+          <div style={{ fontSize: 12, letterSpacing: '2.5px', color: GOLD }}>HEAR FROM DR. SONIA</div>
+          <h2 style={{ fontFamily: SERIF, fontSize: 30, color: INK, marginTop: 8 }}>Dr. Sonia&rsquo;s Approach to Injectables</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginTop: 28 }}>
+            <div>
+              <Yt id="7ekXygNUceQ" title="Dr. Sonia's Story: Why She Became a Dermatologist" />
+              <h3 style={{ fontSize: 16, marginTop: 12, color: INK }}>Dr. Sonia&rsquo;s Story: Why She Became a Dermatologist <span style={{ color: GOLD, fontWeight: 400 }}>&middot; 2 min</span></h3>
+              <p style={{ fontSize: 14, lineHeight: 1.6, marginTop: 6 }}>Dr. Sonia shares the personal experiences that led her to specialize in dermatology and her commitment to patients of all skin types.</p>
+            </div>
+            <div>
+              <Yt id="aIXNGKia5fQ" title="Dr. Sonia on Natural Results & Knowing When to Say No" />
+              <h3 style={{ fontSize: 16, marginTop: 12, color: INK }}>Dr. Sonia on Natural Results &amp; Knowing When to Say No <span style={{ color: GOLD, fontWeight: 400 }}>&middot; 3 min</span></h3>
+              <p style={{ fontSize: 14, lineHeight: 1.6, marginTop: 6 }}>A board-certified dermatologist&rsquo;s perspective on prioritizing patient safety and natural-looking outcomes over unnecessary procedures.</p>
+            </div>
+          </div>
         </div>
       </section>
 

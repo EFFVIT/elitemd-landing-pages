@@ -146,7 +146,7 @@ export default function EliteMedSpaLP() {
               <span>Board Certified</span><span>Harvard &amp; Penn State Trained</span><span>KRON 4 Expert</span><span>500+ Five-Star Reviews</span>
             </div>
           </div>
-          <img src="/images/vip/dr-sonia.png" alt="Dr. Sonia Badreshia-Bansal, MD, FAAD" style={{ width: '100%', maxWidth: 380, borderRadius: 8, justifySelf: 'center' }} />
+          <img src="/images/vip/dr-sonia.webp" alt="Dr. Sonia Badreshia-Bansal, MD, FAAD" style={{ width: '100%', maxWidth: 380, borderRadius: 8, justifySelf: 'center' }} />
         </div>
       </section>
 
@@ -210,9 +210,9 @@ export default function EliteMedSpaLP() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: 24, marginTop: 30 }}>
             {[
-              { img: '/images/vip/treatment-laser.jpg', tag: 'LASER TREATMENTS', h: 'Precision Laser Therapies', d: 'Advanced laser-based treatments addressing skin texture, tone, and collagen production. Dr. Sonia tailors each treatment to the individual’s skin type and goals.', items: ['Elite Mini Laser Lift', 'Elite Laser Lift', 'IPL PhotoFacial'] },
-              { img: '/images/vip/treatment-injectable.jpg', tag: 'INJECTABLES', h: 'Neuromodulators & Dermal Fillers', d: 'Injectable treatments administered with a precise, natural-result-focused technique. All injectables performed by Dr. Sonia personally.', items: ['FDA-Approved Neuromodulators', 'Hyaluronic Acid Fillers', 'Sculptra Biostimulator'] },
-              { img: '/images/vip/skincare-products.jpg', tag: 'RF TIGHTENING & SKINCARE', h: 'Non-Surgical Tightening & Medical Skincare', d: 'Non-invasive radiofrequency tightening and physician-grade skincare formulated to complement in-office treatments.', items: ['Forma RF Tightening', 'Dr. Sonia Skincare Line', 'Customized Protocols'] },
+              { img: '/images/vip/treatment-laser.webp', tag: 'LASER TREATMENTS', h: 'Precision Laser Therapies', d: 'Advanced laser-based treatments addressing skin texture, tone, and collagen production. Dr. Sonia tailors each treatment to the individual’s skin type and goals.', items: ['Elite Mini Laser Lift', 'Elite Laser Lift', 'IPL PhotoFacial'] },
+              { img: '/images/vip/treatment-injectable.webp', tag: 'INJECTABLES', h: 'Neuromodulators & Dermal Fillers', d: 'Injectable treatments administered with a precise, natural-result-focused technique. All injectables performed by Dr. Sonia personally.', items: ['FDA-Approved Neuromodulators', 'Hyaluronic Acid Fillers', 'Sculptra Biostimulator'] },
+              { img: '/images/vip/skincare-products.webp', tag: 'RF TIGHTENING & SKINCARE', h: 'Non-Surgical Tightening & Medical Skincare', d: 'Non-invasive radiofrequency tightening and physician-grade skincare formulated to complement in-office treatments.', items: ['Forma RF Tightening', 'Dr. Sonia Skincare Line', 'Customized Protocols'] },
             ].map(c => (
               <div key={c.tag} style={{ background: WHITE, borderRadius: 8, overflow: 'hidden', boxShadow: '0 4px 20px rgba(44,51,69,0.07)' }}>
                 <img src={c.img} alt={c.h} loading="lazy" style={{ width: '100%', height: 170, objectFit: 'cover' }} />
