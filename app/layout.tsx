@@ -1,3 +1,4 @@
+import DniSwap from '@/components/DniSwap'
 import Fab from '@/components/fab/Fab'
 import './globals.css'
 
@@ -18,6 +19,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             mounted per-page via <MarketingTags/> on aesthetics routes only. */}
       </head>
       <body>
+        {/* Inert until the elitemd `dni_pools` row exists in control with real
+            numbers (pending Tom's 925-pool purchase, ClickUp 86bb1vhzc). Once
+            the pool + allowed_origins are set, paid sessions swap the number
+            with NO further code deploy — go-live is config-only. */}
+        <DniSwap />
         <Fab client="elitemd" />
         {children}
       </body>
