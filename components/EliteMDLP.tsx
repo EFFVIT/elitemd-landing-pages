@@ -2,6 +2,7 @@
 import { Suspense, useState } from 'react'
 import GhlForm from './GhlForm'
 import GclidCapture from './GclidCapture'
+import type { EliteContent } from './eliteContent'
 
 const DARK      = '#111111'
 const DARK_CARD = '#1c1c1c'
@@ -18,47 +19,14 @@ const PHONE_DISPLAY = '(925) 886-3926'
 const PHONE_HREF    = 'tel:+19258863926'
 const ADDRESS       = '4185 Blackhawk Plaza Circle, Danville, CA 94506'
 
+// Fixed step-card icons (titles come from content.steps)
+const STEP_ICONS = [
+  { img: '/steps-icon-1.svg', w: 106, h: 119 },
+  { img: '/steps-icon-2.svg', w: 124, h: 125 },
+  { img: '/steps-icon-3.svg', w: 133, h: 139 },
+]
+
 // ─── Inline SVG Icons ────────────────────────────────────────────────────────
-
-function IconCalendar() {
-  return (
-    <svg width="90" height="102" viewBox="0 0 106 119" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="12" width="102" height="105" rx="8" stroke={GOLD} strokeWidth="4" fill="none"/>
-      <rect x="2" y="12" width="102" height="28" rx="4" fill={GOLD} fillOpacity="0.15"/>
-      <line x1="30" y1="2" x2="30" y2="26" stroke={GOLD} strokeWidth="5" strokeLinecap="round"/>
-      <line x1="76" y1="2" x2="76" y2="26" stroke={GOLD} strokeWidth="5" strokeLinecap="round"/>
-      <line x1="2" y1="40" x2="104" y2="40" stroke={GOLD} strokeWidth="3"/>
-      <rect x="16" y="54" width="18" height="14" rx="3" fill={GOLD}/>
-      <rect x="44" y="54" width="18" height="14" rx="3" fill={GOLD}/>
-      <rect x="72" y="54" width="18" height="14" rx="3" fill={GOLD}/>
-      <rect x="16" y="78" width="18" height="14" rx="3" fill={GOLD}/>
-      <rect x="44" y="78" width="18" height="14" rx="3" fill={GOLD}/>
-      <rect x="72" y="78" width="18" height="14" rx="3" fill={GOLD} fillOpacity="0.4"/>
-    </svg>
-  )
-}
-
-function IconPerson() {
-  return (
-    <svg width="90" height="95" viewBox="0 0 133 139" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="66.5" cy="36" r="30" stroke={GOLD} strokeWidth="4" fill="none"/>
-      <circle cx="66.5" cy="36" r="18" fill={GOLD} fillOpacity="0.2"/>
-      <path d="M6 139c0-33.137 27.013-60 60.5-60s60.5 26.863 60.5 60" stroke={GOLD} strokeWidth="4" strokeLinecap="round" fill="none"/>
-      <circle cx="66.5" cy="36" r="10" fill={GOLD}/>
-    </svg>
-  )
-}
-
-function IconPersonStar() {
-  return (
-    <svg width="90" height="95" viewBox="0 0 133 139" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="54" cy="38" r="28" stroke={GOLD} strokeWidth="4" fill="none"/>
-      <circle cx="54" cy="38" r="14" fill={GOLD} fillOpacity="0.2"/>
-      <path d="M4 139c0-31.48 22.536-57.5 50-57.5s50 26.02 50 57.5" stroke={GOLD} strokeWidth="4" strokeLinecap="round" fill="none"/>
-      <path d="M98 60l4 12h13l-10.5 7.5 4 12L98 84l-10.5 7.5 4-12L81 72h13z" fill={GOLD}/>
-    </svg>
-  )
-}
 
 function IconCheckBadge() {
   return (
@@ -114,6 +82,8 @@ function IconPhilosophy() {
     </svg>
   )
 }
+
+const CONF_ICONS = [<IconCapabilities key="c" />, <IconSafety key="s" />, <IconPhilosophy key="p" />]
 
 function StarFilled() {
   return (
@@ -174,16 +144,6 @@ function GoldBtn({ label, href = '#form', style }: { label: string; href?: strin
   )
 }
 
-// ─── Five Stars ───────────────────────────────────────────────────────────────
-
-function FiveStars() {
-  return (
-    <div style={{ display: 'flex', gap: 3 }}>
-      {[1,2,3,4,5].map(i => <StarFilled key={i} />)}
-    </div>
-  )
-}
-
 // ─── FAQ Accordion Item ───────────────────────────────────────────────────────
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -219,7 +179,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: string; bottomFormId: string }) {
+export default function EliteMDLP({ content }: { content: EliteContent }) {
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: DARK, background: WHITE }}>
       <Suspense fallback={null}>
@@ -246,7 +206,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
         />
         <div className="emd-nav-btns" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           <GoldBtn
-            label="Request Your Consultation"
+            label={content.navCta}
             href="#form"
             style={{ fontSize: 13, padding: '11px 20px', color: DARK, letterSpacing: '0.04em' }}
           />
@@ -323,10 +283,10 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 margin: 0,
                 lineHeight: 1.35,
               }}>
-                Request Your Hair Consultation
+                {content.hero.formTitle}
               </p>
               <div style={{ padding: '0 16px 16px' }}>
-                <GhlForm formId={heroFormId} height={443} formName="Banner Form - Hair Loss" />
+                <GhlForm formId={content.heroFormId} host={content.formHost} height={443} formName="Banner Form - Hair" />
               </div>
             </div>
           </div>
@@ -335,7 +295,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           <div className="emd-hero-right" style={{ alignSelf: 'flex-end', marginRight: 16, display: 'flex', alignItems: 'center', gap: 16, padding: '20px 0' }}>
             <img src={REVIEWS_LOGO} alt="Google Reviews" style={{ height: 38, width: 'auto', flexShrink: 0 }} />
             <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 16, color: WHITE, margin: 0, lineHeight: 1.4 }}>
-              Patient-focused care.<br />No pressure educational discussions.
+              {content.hero.trust1}<br />{content.hero.trust2}
             </p>
           </div>
 
@@ -357,13 +317,13 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                   margin: '0 0 20px',
                 }}
               >
-                A Clear Medical Path for Hair Thinning &amp; Hair Loss
+                {content.hero.h1}
               </h1>
               <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 20, color: WHITE, margin: '0 0 8px' }}>
-                General information reviewed during educational visits
+                {content.hero.sub1}
               </p>
               <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 15, color: 'rgba(255,255,255,0.8)', margin: 0, lineHeight: 1.6 }}>
-                Request educational information to better understand hair loss topics.
+                {content.hero.sub2}
               </p>
             </div>
           </div>
@@ -387,20 +347,16 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 marginBottom: 20,
               }}
             >
-              Your Next Steps Are Simple
+              {content.stepsHeading}
             </h2>
             <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: DARK, margin: 0 }}>
-              It&apos;s simpler than you think, and it starts with learning more.
+              {content.stepsSub}
             </p>
           </div>
 
           {/* Gold step cards — 295×314px per Figma */}
           <div className="emd-steps-grid" style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
-            {[
-              { img: '/steps-icon-1.svg', w: 106, h: 119, title: 'Schedule a Physician-led educational visit' },
-              { img: '/steps-icon-2.svg', w: 124, h: 125, title: 'Understand Your Hair Loss Pattern' },
-              { img: '/steps-icon-3.svg', w: 133, h: 139, title: 'Review Non-Surgical Care Options' },
-            ].map((step, i) => (
+            {content.steps.map((title, i) => (
               <div
                 key={i}
                 className="emd-step-card"
@@ -420,10 +376,10 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 }}
               >
                 <img
-                  src={step.img}
+                  src={STEP_ICONS[i].img}
                   alt=""
-                  width={step.w}
-                  height={step.h}
+                  width={STEP_ICONS[i].w}
+                  height={STEP_ICONS[i].h}
                   style={{ display: 'block', maxWidth: '100%', objectFit: 'contain' }}
                 />
                 <p style={{
@@ -435,7 +391,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                   margin: 0,
                   lineHeight: 1.3,
                 }}>
-                  {step.title}
+                  {title}
                 </p>
               </div>
             ))}
@@ -444,7 +400,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           {/* Below cards — plain white, no gray card */}
           <div className="emd-nosales" style={{ textAlign: 'center', marginTop: 52 }}>
             <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 18, color: DARK, marginBottom: 40 }}>
-              No pressure. No sales pitch. Just answers.
+              {content.band.line}
             </p>
             <h2
               className="emd-h2-lg"
@@ -457,10 +413,10 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 marginBottom: 20,
               }}
             >
-              Straight Answers. No Obligation.
+              {content.band.h2}
             </h2>
             <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: DARK, marginBottom: 36 }}>
-              Educational discussion designed to help you make informed decisions.
+              {content.band.sub}
             </p>
             <a
               href="#form"
@@ -477,10 +433,10 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 letterSpacing: '0.04em',
               }}
             >
-              Learn About Hair Loss
+              {content.band.ctaLabel}
             </a>
             <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: 16, color: DARK, marginTop: 16 }}>
-              Fast. Private. No obligation.
+              {content.band.ctaSub}
             </p>
           </div>
 
@@ -504,10 +460,10 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 marginBottom: 16,
               }}
             >
-              Why Patients Choose Our Team
+              {content.why.heading}
             </h2>
             <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 500, fontSize: 22, color: WHITE, margin: 0 }}>
-              Real care. Real support. Real patient-first focus.
+              {content.why.sub}
             </p>
           </div>
 
@@ -516,14 +472,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
             className="emd-why-grid"
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px 40px', marginBottom: 52 }}
           >
-            {[
-              'Information explaining how hair loss patterns may vary',
-              'Educational discussions informed by medical knowledge',
-              'Conservative, Non-Surgical Focus',
-              'Support at Every Stage',
-              'Clear explanations & general educational discussion',
-              'Educational discussions informed by clinical experience',
-            ].map((item, i) => (
+            {content.why.pills.map((item, i) => (
               <div
                 key={i}
                 style={{
@@ -570,7 +519,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 letterSpacing: '0.04em',
               }}
             >
-              Request Educational Information
+              {content.why.cta1}
             </a>
             <a
               href="#form"
@@ -588,7 +537,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 letterSpacing: '0.04em',
               }}
             >
-              Learn About Hair Loss
+              {content.why.cta2}
             </a>
           </div>
 
@@ -632,7 +581,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                   margin: 0,
                 }}
               >
-                Dr. Vivek Bansal: Specialist in Hair Loss Evaluation &amp; Treatment Planning
+                {content.bio.h2}
               </h2>
 
               <p style={{
@@ -643,14 +592,14 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 lineHeight: 1.35,
                 margin: 0,
               }}>
-                Verified patient experiences from real consultations and care.
+                {content.bio.sub}
               </p>
 
               <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, lineHeight: 1.65, color: DARK, margin: 0 }}>
                 Dr. Vivek Bansal completed his medical training at the prestigious Penn State College of Medicine, where he was the second physician accepted into the highly selective five-year integrated training program at Penn State Milton S. Hershey Medical Center. During his training, he served as Chief Resident and developed extensive clinical experience caring for patients with a wide range of medical and aesthetic concerns.
               </p>
               <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, lineHeight: 1.65, color: DARK, margin: 0 }}>
-                Today, Dr. Bansal works with individuals experiencing hair loss and alopecia, helping them better understand the causes of hair thinning and explore medically guided options for supporting scalp health and hair growth. His approach focuses on education, individualized evaluation, and responsible treatment planning so patients can make informed decisions about addressing their hair loss concerns.
+                Today, Dr. Bansal works with individuals experiencing hair loss and alopecia, performing surgical hair restoration and guiding patients through the options for restoring a fuller, natural-looking hairline. His approach focuses on individualized evaluation and responsible treatment planning so patients can make informed decisions.
               </p>
               <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, lineHeight: 1.65, color: DARK, margin: 0 }}>
                 Dr. Bansal is also involved in physician education and advanced clinical training, contributing to the ongoing development of best practices in patient care.
@@ -672,7 +621,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                     letterSpacing: '0.04em',
                   }}
                 >
-                  Request Your Evaluation
+                  {content.bio.ctaLabel}
                 </a>
               </div>
             </div>
@@ -803,7 +752,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 lineHeight: 1.3,
               }}
             >
-              Getting Help for Hair Loss Can Be More Affordable Than You Think
+              {content.financing.h2}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 15, margin: 0 }}>
               Flexible monthly plans built for real patients.
@@ -832,7 +781,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
               </p>
             </div>
             <div>
-              <GoldBtn label="REQUEST YOUR HAIR RESTORATION CONSULTATION" href="#form" style={{ fontSize: 12 }} />
+              <GoldBtn label={content.financing.ctaLabel} href="#form" style={{ fontSize: 12 }} />
             </div>
           </div>
 
@@ -872,37 +821,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           </div>
 
           <div className="emd-confidence-grid three-col">
-            {[
-              {
-                icon: <IconCapabilities />,
-                title: 'Capabilities',
-                bullets: [
-                  'Comprehensive information regarding hair loss patterns',
-                  'Educational discussions based on individual questions',
-                  'Topics that may include non-surgical educational considerations',
-                  'Educational discussion of factors that influence hair loss',
-                ],
-              },
-              {
-                icon: <IconSafety />,
-                title: 'Safety Standards',
-                bullets: [
-                  'Evidence-based approaches reviewed by licensed medical providers',
-                  'Clean, professional clinical environment with medical-grade protocols',
-                  'Clear explanations of commonly discussed topics and considerations',
-                ],
-              },
-              {
-                icon: <IconPhilosophy />,
-                title: 'Patient-First Philosophy',
-                bullets: [
-                  'Honest assessments - we provide recommendations only when appropriate',
-                  'Personalized plans developed around your unique needs and goals',
-                  'Direct communication with your doctor at every step of your care journey',
-                  'Focus on long-term hair health',
-                ],
-              },
-            ].map((col, i) => (
+            {content.confidence.map((col, i) => (
               <div
                 key={i}
                 style={{
@@ -915,7 +834,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  {col.icon}
+                  {CONF_ICONS[i]}
                 </div>
                 <h3
                   style={{
@@ -960,18 +879,9 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
           </div>
 
           <div style={{ background: WHITE, borderRadius: 12, padding: '8px 32px', boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
-            <FaqItem
-              q="What topics are commonly discussed when learning about hair loss?"
-              a="Educational discussions often include general information about hair growth cycles, common causes of hair thinning, and factors that may influence hair loss. These conversations are intended to help individuals better understand the topic and ask informed questions."
-            />
-            <FaqItem
-              q="How long does it take to review educational information about hair loss?"
-              a="Reviewing educational materials can vary depending on the individual and the topics being explored. Many people take time to read through information at their own pace and revisit sections as needed."
-            />
-            <FaqItem
-              q="Will the information be tailored to my questions?"
-              a="Educational information is designed to address common questions and concerns related to hair loss. While the content is informational in nature, individuals are encouraged to focus on the topics most relevant to their interests and understanding."
-            />
+            {content.faq.map((f, i) => (
+              <FaqItem key={i} q={f.q} a={f.a} />
+            ))}
           </div>
         </div>
       </section>
@@ -1008,7 +918,7 @@ export default function EliteMDLP({ heroFormId, bottomFormId }: { heroFormId: st
 
             {/* Form */}
             <div className="emd-form-col" style={{ paddingBottom: 40, display: 'flex', flexDirection: 'column' }}>
-              <GhlForm formId={bottomFormId} height={443} formName="Footer Form - Hair Loss" />
+              <GhlForm formId={content.bottomFormId} host={content.formHost} height={443} formName="Footer Form - Hair" />
               <p style={{ textAlign: 'center', color: WHITE, fontFamily: "'Roboto', sans-serif", fontWeight: 700, fontSize: 14, margin: '20px 0 0', letterSpacing: '0.01em' }}>
                 Your information is private and never shared.
               </p>

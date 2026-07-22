@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import EliteMedSpaLP from '@/components/EliteMedSpaLP'
+import MarketingTags from '@/components/MarketingTags'
 
 export const metadata: Metadata = {
   title: 'Expert Skin & Aesthetic Care with Dr. Sonia | Elite MD Danville',
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <EliteMedSpaLP />
+  return (
+    <>
+      <MarketingTags />
+      <EliteMedSpaLP />
+    </>
+  )
 }
